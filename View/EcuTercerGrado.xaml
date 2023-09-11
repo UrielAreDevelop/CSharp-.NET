@@ -1,0 +1,482 @@
+﻿<Window x:Class="ProblemarioMatematicas.View.EcuTercerGrado"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProblemarioMatematicas.View"
+        mc:Ignorable="d"
+        Title="EcuTercerGrado" Height="990" Width="1000"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
+        MouseDown="Window_MouseDown"
+        Background="Transparent"
+        AllowsTransparency="True">
+
+    <Border CornerRadius="55">
+        <Border.Background>
+            <ImageBrush ImageSource="/Images/matematicas.jpg"/>
+        </Border.Background>
+        <Border CornerRadius="50" 
+            BorderThickness="7"
+            Opacity="0.9">
+            <Border.BorderBrush>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="#4050ff" Offset="0"/>
+                    <GradientStop Color="#00ccff" Offset="0.5"/>
+                    <GradientStop Color="#00ffc3" Offset="1"/>
+                </LinearGradientBrush>
+            </Border.BorderBrush>
+
+            <Border.Background>
+                <LinearGradientBrush StartPoint="0,1" EndPoint="1,0">
+                    <GradientStop Color="#08009e" Offset="0"/>
+                    <GradientStop Color="#020024" Offset="0.75"/>
+                </LinearGradientBrush>
+            </Border.Background>
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="25"/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="25"/>
+                        <ColumnDefinition Width="5"/>
+                        <ColumnDefinition Width="25"/>
+                        <ColumnDefinition Width="25"/>
+                    </Grid.ColumnDefinitions>
+
+
+                    <TextBlock Text="ECUACIÓN CÚBICA"
+                           Foreground="DarkGray"
+                           FontSize="15"
+                           FontFamily="Montserrat"
+                           Grid.Column="1"
+                           VerticalAlignment="Center"
+                           Margin="10,0,0,0"/>
+
+                    <Button x:Name="btnMinimize"
+                        BorderThickness="0"
+                        Content="-"
+                        Foreground="White"
+                        FontSize="25"
+                        FontFamily="Montserrat"
+                        Cursor="Hand"
+                        Grid.Column="2"
+                        Click="btnMinimize_Click">
+
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="Background" Value="#00ccff"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="#03718c"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Border Width="25" Height="25"
+                                    CornerRadius="9"
+                                    Background="{TemplateBinding Background}">
+                                    <ContentPresenter VerticalAlignment="Center"
+                                                  HorizontalAlignment="Center"/>
+
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+
+                    <Button x:Name="btnClose"
+                        BorderThickness="0"
+                        Content="X"
+                        Foreground="White"
+                        FontSize="14"
+                        FontFamily="Montserrat"
+                        Cursor="Hand"
+                        Grid.Column="4"
+                        Click="btnClose_Click"
+                        >
+
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="Background" Value="#ff0062"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="#800132"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Border Width="25" Height="25"
+                                    CornerRadius="9"
+                                    Background="{TemplateBinding Background}">
+                                    <ContentPresenter VerticalAlignment="Center"
+                                                  HorizontalAlignment="Center"/>
+
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+
+                    </Button>
+                </Grid>
+
+                <StackPanel Width="350"
+                            Grid.Row="2"
+                            Orientation="Vertical"
+                            Margin="0,15,0,0">
+
+                    <TextBlock Text="RELLENA LOS SIGUIENTES CAMPOS"
+                               Foreground="White"
+                               FontSize="12"
+                               FontWeight="Medium"
+                               FontFamily="Montserrat"
+                               HorizontalAlignment="Center"
+                               Margin="0,10,0,0"
+                               />
+
+                    <TextBlock Text="Ingresa el valor de XK: "
+                               Foreground="DarkGray"
+                               FontSize="12"
+                               FontWeight="Medium"
+                               FontFamily="Montserrat"
+                               HorizontalAlignment="Left"
+                               Margin="0,20,0,0"
+                               />
+
+                    <TextBox x:Name="txtXK"
+                             FontSize="13"
+                             FontWeight="Medium"
+                             FontFamily="Montserrat"
+                             Background="Transparent"
+                             Foreground="White"
+                             CaretBrush="LightGray"
+                             BorderBrush="DarkGray"
+                             BorderThickness="0,0,0,1"
+                             Height="28"
+                             VerticalContentAlignment="Center"
+                             Margin="0,5,0,0"
+                             HorizontalContentAlignment="Center"
+                             />
+
+                    <TextBlock Text="Ingresa el valor de XN: "
+                               Foreground="DarkGray"
+                               FontSize="12"
+                               FontWeight="Medium"
+                               FontFamily="Montserrat"
+                               HorizontalAlignment="Left"
+                               Margin="0,35,0,0"
+                               />
+
+                    <TextBox x:Name="txtXN"
+                             FontSize="13"
+                             FontWeight="Medium"
+                             FontFamily="Montserrat"
+                             Background="Transparent"
+                             Foreground="White"
+                             CaretBrush="LightGray"
+                             BorderBrush="DarkGray"
+                             BorderThickness="0,0,0,1"
+                             Height="28"
+                             VerticalContentAlignment="Center"
+                             Margin="0,5,0,0"
+                             HorizontalContentAlignment="Center"/>
+
+                    <TextBlock Text="Ingresa el valor de X0: "
+                               Foreground="DarkGray"
+                               FontSize="12"
+                               FontWeight="Medium"
+                               FontFamily="Montserrat"
+                               HorizontalAlignment="Left"
+                               Margin="0,35,0,0"
+                               />
+
+                    <TextBox x:Name="txtX0"
+                             FontSize="13"
+                             FontWeight="Medium"
+                             FontFamily="Montserrat"
+                             Background="Transparent"
+                             Foreground="White"
+                             CaretBrush="LightGray"
+                             BorderBrush="DarkGray"
+                             BorderThickness="0,0,0,1"
+                             Height="28"
+                             VerticalContentAlignment="Center"
+                             Margin="0,5,0,0"
+                             HorizontalContentAlignment="Center"/>
+
+
+                    <TextBlock
+                               Foreground="DarkGray"
+                               FontSize="13"
+                               FontWeight="Medium"
+                               FontFamily="Montserrat"
+                               HorizontalAlignment="Left"
+                               Margin="0,35,0,0"
+                               ><Run Text="Ingresa los valores dependiendo si es la primer (Y0) "/><LineBreak/><Run Text="o segunda mitad (YN)"/></TextBlock>
+
+                    <TextBox x:Name="txtY0N"
+                             FontSize="13"
+                             FontWeight="Medium"
+                             FontFamily="Montserrat"
+                             Background="Transparent"
+                             Foreground="White"
+                             CaretBrush="LightGray"
+                             BorderBrush="DarkGray"
+                             BorderThickness="0,0,0,1"
+                             Height="28"
+                             VerticalContentAlignment="Center"
+                             Margin="0,5,0,0"
+                             HorizontalContentAlignment="Center"/>
+
+                    <TextBlock Text="Ingresa el valor de ΔY0: "
+                               Foreground="DarkGray"
+                               FontSize="12"
+                               FontWeight="Medium"
+                               FontFamily="Montserrat"
+                               HorizontalAlignment="Left"
+                               Margin="0,35,0,0"
+                               />
+
+                    <TextBox x:Name="txtDeltaY0"
+                             FontSize="13"
+                             FontWeight="Medium"
+                             FontFamily="Montserrat"
+                             Background="Transparent"
+                             Foreground="White"
+                             CaretBrush="LightGray"
+                             BorderBrush="DarkGray"
+                             BorderThickness="0,0,0,1"
+                             Height="28"
+                             VerticalContentAlignment="Center"
+                             Margin="0,5,0,0"
+                             HorizontalContentAlignment="Center" />
+
+                    <TextBlock Text="Ingresa el valor de Δ^2Y0: "
+                               Foreground="DarkGray"
+                               FontSize="12"
+                               FontWeight="Medium"
+                               FontFamily="Montserrat"
+                               HorizontalAlignment="Left"
+                               Margin="0,35,0,0"
+                               />
+
+                    <TextBox x:Name="txtDeltaCuaY0"
+                             FontSize="13"
+                             FontWeight="Medium"
+                             FontFamily="Montserrat"
+                             Background="Transparent"
+                             Foreground="White"
+                             CaretBrush="LightGray"
+                             BorderBrush="DarkGray"
+                             BorderThickness="0,0,0,1"
+                             Height="28"
+                             VerticalContentAlignment="Center"
+                             Margin="0,5,0,0"
+                             HorizontalContentAlignment="Center" />
+
+                    <TextBlock Text="Ingresa el valor de Δ^3Y0: "
+                               Foreground="DarkGray"
+                               FontSize="12"
+                               FontWeight="Medium"
+                               FontFamily="Montserrat"
+                               HorizontalAlignment="Left"
+                               Margin="0,35,0,0"
+                               />
+
+                    <TextBox x:Name="txtDeltaCubiY0"
+                             FontSize="13"
+                             FontWeight="Medium"
+                             FontFamily="Montserrat"
+                             Background="Transparent"
+                             Foreground="White"
+                             CaretBrush="LightGray"
+                             BorderBrush="DarkGray"
+                             BorderThickness="0,0,0,1"
+                             Height="28"
+                             VerticalContentAlignment="Center"
+                             Margin="0,5,0,0"
+                             HorizontalContentAlignment="Center" />
+
+                    <TextBlock Text="Selecciona la mitad: "
+                               Foreground="DarkGray"
+                               FontSize="12"
+                               FontWeight="Medium"
+                               FontFamily="Montserrat"
+                               HorizontalAlignment="Left"
+                               Margin="0,15,0,0"
+                               />
+
+                    <RadioButton x:Name="PrimeraMitad"
+                                 Content="Primera Mitad"
+                                 FontSize="16"
+                                 Foreground="White"
+                                 HorizontalAlignment="Center"
+                                 Margin="0,15,0,0"
+                                 />
+                    <RadioButton x:Name="SegundaMitad"
+                                 Content="Segunda Mitad"
+                                 FontSize="16"
+                                 Foreground="White"
+                                 HorizontalAlignment="Center"
+                                 Margin="0,15,0,0"
+                                 />
+
+                    <StackPanel
+                         Width="310" Height="100"
+                        Orientation="Vertical">
+                        <Button
+                        Content="Calcular"
+                        BorderThickness="0"
+                        HorizontalAlignment="Left"
+                        Foreground="White"
+                        x:Name="btnCalcular"
+                        FontFamily="Montserrat"
+                        Cursor="Hand"
+                        Click="btnCalcular_Click"
+                        Margin="0,20,0,0">
+
+                            <Button.Style>
+                                <Style TargetType="Button">
+                                    <Setter Property="Background" Value="#820085"/>
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Background" Value="#370138"/>
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Button.Style>
+
+                            <Button.Template>
+                                <ControlTemplate TargetType="Button">
+                                    <Border Width="120" Height="40"
+                                        CornerRadius="15"
+                                        Background="{TemplateBinding Background}">
+                                        <ContentPresenter VerticalAlignment="Center"
+                                                      HorizontalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+
+
+                        </Button>
+
+                        <Button
+                        Content="Regresar"
+                        BorderThickness="0"
+                        HorizontalAlignment="Right"
+                        Foreground="White"
+                        x:Name="btnRegresar"
+                        FontFamily="Montserrat"
+                        Cursor="Hand"
+                        Click="btnRegresar_Click"
+                        Margin="0,-40,0,0">
+
+                            <Button.Style>
+                                <Style TargetType="Button">
+                                    <Setter Property="Background" Value="#07f0c9"/>
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Background" Value="#018f77"/>
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Button.Style>
+
+                            <Button.Template>
+                                <ControlTemplate TargetType="Button">
+                                    <Border Width="120" Height="40"
+                                        CornerRadius="15"
+                                        Background="{TemplateBinding Background}">
+                                        <ContentPresenter VerticalAlignment="Center"
+                                                      HorizontalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+
+
+                        </Button>
+                    </StackPanel>
+
+
+                    <TextBlock Text="RESULTADOS"
+                               Foreground="White"
+                               FontSize="30"
+                               FontWeight="Medium"
+                               FontFamily="Montserrat"
+                               HorizontalAlignment="Center"
+                               Margin="0,10,0,0"
+                               />
+
+                    <StackPanel
+                        Width="170" Height="100"
+                        Orientation="Vertical">
+
+
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="120"/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+
+
+                            <Grid.ColumnDefinitions>
+
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock Text="X"
+                               Foreground="White"
+                               FontSize="30"
+                               FontWeight="Medium"
+                               FontFamily="Montserrat"
+                               HorizontalAlignment="Center"
+                               Margin="0,5,0,0"
+                               Grid.Column="0"
+                               />
+
+                            <Label x:Name="lblResultadoX"
+                                   Foreground="DarkGray"
+                                   FontSize="15"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Center" 
+                                   Grid.Column="0"/>
+
+                            <TextBlock Text="YK"
+                               Foreground="White"
+                               FontSize="30"
+                               FontWeight="Medium"
+                               FontFamily="Montserrat"
+                               HorizontalAlignment="Center"
+                               Margin="0,5,0,0"
+                               Grid.Column="1"
+                               />
+
+                            <Label x:Name="lblResultadoY"
+                                   Foreground="DarkGray"
+                                   FontSize="15"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Center" 
+                                   Grid.Column="1"/>
+                        </Grid>
+                    </StackPanel>
+                </StackPanel>
+
+            </Grid>
+        </Border>
+    </Border>
+
+
+</Window>
